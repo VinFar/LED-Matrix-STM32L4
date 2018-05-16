@@ -115,7 +115,6 @@ extern "C" {
 #define ALL_HIGH R1_HIGH; R2_HIGH; B1_HIGH; B2_HIGH; G1_HIGH; G2_HIGH
 #define ALL_LOW R1_LOW; R2_LOW; B1_LOW; B2_LOW; G1_LOW; G2_LOW
 
-
 #define CLK_HIGH BANK_CLK->BSRR = PIN_CLK
 #define CLK_LOW BANK_CLK->BSRR = PIN_CLK<< 16
 
@@ -132,6 +131,8 @@ extern "C" {
 #define D_LOW BANK_D->BSRR = PIN_D<< 16
 
 
+
+//#define ADDR_SELECT(x) GPIOA->ODR |= (((x&0b01000)<<4))
 
 /* USER CODE END Includes */
 

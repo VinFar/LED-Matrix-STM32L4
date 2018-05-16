@@ -46,24 +46,44 @@ int main(void) {
 	CLK_HIGH;
 
 	A_LOW;
-	B_HIGH;
+	B_LOW;
 	C_LOW;
 	D_LOW;
 
+	int i = 0;
+
 	while (1) {
 
-		OE_HIGH;
-		LAT_HIGH;
+		if (i & 0b1) {
+			D_HIGH;
+		} else {
+			D_LOW;
+		}
 
-		A_LOW;
-		B_HIGH;
-		C_LOW;
-		D_LOW;
+		if (i & 0b10) {
+			C_HIGH;
+		} else {
+			C_LOW;
+		}
+		if (i & 0b100) {
+			B_HIGH;
+		} else {
+			B_LOW;
+		}
+		if (i & 0b1000) {
+			A_HIGH;
+		} else {
+			A_LOW;
+		}
 
-		delayUS_ASM(10);
-		LAT_LOW;
-		delayUS_ASM(10);
+		if (++i > 16) {
+			i = 0;
+		}
+
+		delayUS_ASM(1);
 		OE_LOW;
+		delayUS_ASM(1);
+		LAT_LOW;
 
 		for (int i = 0; i < 32; i++) {
 			delayUS_ASM(1);
@@ -74,27 +94,17 @@ int main(void) {
 			delayUS_ASM(1);
 			CLK_LOW;
 			delayUS_ASM(1);
-			ALL_LOW
-			;
+			R1_LOW;
 			delayUS_ASM(1);
 			CLK_HIGH;	//clk high
 			delayUS_ASM(1);
 			CLK_LOW;
 
 		}
-		delayUS_ASM(10);
-		LAT_LOW;
-		delayUS_ASM(10);
-		OE_LOW;
-
-		delayUS_ASM(1000);
-
-		asm("nop");
-		asm("nop");
-		asm("nop");
-		asm("nop");
-		asm("nop");
-		asm("nop");
+		delayUS_ASM(1);
+		OE_HIGH;
+		delayUS_ASM(1);
+		LAT_HIGH;
 
 	}
 	/* USER CODE END 3 */
