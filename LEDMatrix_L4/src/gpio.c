@@ -87,24 +87,19 @@ void MX_GPIO_Init(void) {
 	 PA4 PA5 PA6 PA7
 	 PA8 PA9 PA10 PA11
 	 PA12 PA13 PA14 */
-	GPIO_InitStruct.Pin = GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3
-			| GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7 | GPIO_PIN_8
-			| GPIO_PIN_11 | GPIO_PIN_12;
+	GPIO_InitStruct.Pin = PIN_R1 | PIN_G1 | PIN_B1 | PIN_R2 | PIN_G2 | PIN_B2 | PIN_A | PIN_B | PIN_C | PIN_D;
 	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
 	GPIO_InitStruct.Pull = GPIO_NOPULL;
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+	HAL_GPIO_Init(BANK_R1, &GPIO_InitStruct);
 
-	GPIO_InitStruct.Pin = GPIO_PIN_0 | GPIO_PIN_1;
+	GPIO_InitStruct.Pin = PIN_LAT | PIN_OE | PIN_LAT;
 	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
 	GPIO_InitStruct.Pull = GPIO_NOPULL;
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-	HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+	HAL_GPIO_Init(BANK_LAT, &GPIO_InitStruct);
 
-	HAL_GPIO_WritePin(GPIOA,
-			GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_3 | GPIO_PIN_4
-					| GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7 | GPIO_PIN_8
-					| GPIO_PIN_11 | GPIO_PIN_12, GPIO_PIN_SET);
+
 
 
 }

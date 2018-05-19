@@ -66,7 +66,7 @@ extern "C" {
 #define PIN_R2 GPIO_PIN_3
 #define PIN_B2 GPIO_PIN_4
 #define PIN_G2 GPIO_PIN_5
-#define PIN_LAT GPIO_PIN_6
+#define PIN_LAT GPIO_PIN_3
 #define PIN_A GPIO_PIN_7
 #define PIN_B GPIO_PIN_8
 #define PIN_C GPIO_PIN_11
@@ -80,7 +80,7 @@ extern "C" {
 #define BANK_R2 GPIOA
 #define BANK_B2 GPIOA
 #define BANK_G2 GPIOA
-#define BANK_LAT GPIOA
+#define BANK_LAT GPIOB
 #define BANK_A GPIOA
 #define BANK_B GPIOA
 #define BANK_C GPIOA
